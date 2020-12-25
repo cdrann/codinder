@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "36188251016",
+    "project_id": "codinder-0",
+    "storage_bucket": "codinder-0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36188251016:android:f9545375fffdd0921d103d",
+        "android_client_info": {
+          "package_name": "com.example.codinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36188251016-sjj44e3s7ksuen0tov8caf9pu7qm0892.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.codinder",
+            "certificate_hash": "ae391c1c48bcaa2358e4ae7107fe22f22ec67feb"
+          }
+        },
+        {
+          "client_id": "36188251016-uvdnf77j1eo64d3oq1kmaea07lbudogp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCM9KoCDV_p3xT6uDdBio0KKwR9TpfFG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36188251016-uvdnf77j1eo64d3oq1kmaea07lbudogp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

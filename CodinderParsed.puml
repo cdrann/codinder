@@ -1,0 +1,157 @@
+@startuml
+class com.example.codinder.LoginActivity {
+- Button mLogin
+- EditText mEmail
+- FirebaseAuth mAuth
+- FirebaseAuth.AuthStateListener firebaseAuthStateListener
+# void onCreate(Bundle)
+# void onStart()
+# void onStop()
+}
+class com.example.codinder.Matches.MatchesAdapter {
+- List<MatchesObject> matchesList
+- Context context
++ MatchesViewHolders onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(MatchesViewHolders,int)
++ int getItemCount()
+}
+class com.example.codinder.Matches.MatchesActivity {
+- RecyclerView mRecyclerView
+- RecyclerView.Adapter mMatchesAdapter
+- RecyclerView.LayoutManager mMatchesLayoutManager
+- String cusrrentUserID
+- ArrayList<MatchesObject> resultsMatches
+# void onCreate(Bundle)
+- void getUserMatchId()
+- void FetchMatchInformation(String)
+- List<MatchesObject> getDataSetMatches()
+}
+class com.example.codinder.RegistrationActivity {
+- Button mRegister
+- EditText mEmail
+- RadioGroup mRadioGroup
+- FirebaseAuth mAuth
+- FirebaseAuth.AuthStateListener firebaseAuthStateListener
+# void onCreate(Bundle)
+# void onStart()
+# void onStop()
+}
+class com.example.codinder.Matches.MatchesViewHolders {
++ TextView mMatchId
++ ImageView mMatchImage
++ void onClick(View)
+}
+class com.example.codinder.Chat.ChatActivity {
+- RecyclerView mRecyclerView
+- RecyclerView.Adapter mChatAdapter
+- RecyclerView.LayoutManager mChatLayoutManager
+- EditText mSendEditText
+- Button mSendButton
+- String currentUserID
+~ DatabaseReference mDatabaseUser
+- ArrayList<ChatObject> resultsChat
+# void onCreate(Bundle)
+- void sendMessage()
+- void getChatId()
+- void getChatMessages()
+- List<ChatObject> getDataSetChat()
+}
+class com.example.codinder.SettingsActivity {
+- EditText mNameField
+- Button mBack
+- ImageView mProfileImage
+- FirebaseAuth mAuth
+- DatabaseReference mUserDatabase
+- String userId
+- Uri resultUri
+# void onCreate(Bundle)
+- void getUserInfo()
+- void saveUserInformation()
+# void onActivityResult(int,int,Intent)
+}
+class com.example.codinder.ChooseLoginRegistrationActivity {
+- Button mLogin
+# void onCreate(Bundle)
+}
+class com.example.codinder.Chat.ChatObject {
+- String message
+- Boolean currentUser
++ String getMessage()
++ void setMessage(String)
++ Boolean getCurrentUser()
++ void setCurrentUser(Boolean)
+}
+class com.example.codinder.Chat.ChatViewHolders {
++ TextView mMessage
++ LinearLayout mContainer
++ void onClick(View)
+}
+class com.example.codinder.Cards.Cards {
+- String userId
+- String name
+- String profileImageUrl
++ String getUserId()
++ void setUserID(String)
++ String getName()
++ void setName(String)
++ String getProfileImageUrl()
++ void setProfileImageUrl(String)
+}
+class com.example.codinder.Chat.ChatAdapter {
+- List<ChatObject> chatList
+- Context context
++ ChatViewHolders onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ChatViewHolders,int)
++ int getItemCount()
+}
+class com.example.codinder.Matches.MatchesObject {
+- String userId
+- String name
+- String profileImageUrl
++ String getUserId()
++ void setUserID(String)
++ String getName()
++ void setName(String)
++ String getProfileImageUrl()
++ void setProfileImageUrl(String)
+}
+class com.example.codinder.MainActivity {
+- Cards[] cards_data
+- com.example.codinder.Cards.arrayAdapter arrayAdapter
+- int i
+- FirebaseAuth mAuth
+- String currentUId
+- DatabaseReference usersDb
+~ ListView listView
+~ List<Cards> rowItems
+- String userSex
+- String oppositeUserSex
+# void onCreate(Bundle)
+- void isConnectionMatch(String)
++ void checkUserSex()
++ void getOppositeSexUsers()
++ void logoutUser(View)
++ void goToSettings(View)
++ void goToMatches(View)
+}
+class com.example.codinder.Cards.arrayAdapter {
+~ Context context
++ View getView(int,View,ViewGroup)
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.LoginActivity
+com.example.codinder.Matches.Adapter <|-- com.example.codinder.Matches.MatchesAdapter
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.Matches.MatchesActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.RegistrationActivity
+com.example.codinder.Matches.OnClickListener <|.. com.example.codinder.Matches.MatchesViewHolders
+com.example.codinder.Matches.ViewHolder <|-- com.example.codinder.Matches.MatchesViewHolders
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.Chat.ChatActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.SettingsActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.ChooseLoginRegistrationActivity
+com.example.codinder.Chat.OnClickListener <|.. com.example.codinder.Chat.ChatViewHolders
+com.example.codinder.Chat.ViewHolder <|-- com.example.codinder.Chat.ChatViewHolders
+com.example.codinder.Chat.Adapter <|-- com.example.codinder.Chat.ChatAdapter
+androidx.appcompat.app.AppCompatActivity <|-- com.example.codinder.MainActivity
+android.widget.ArrayAdapter <|-- com.example.codinder.Cards.arrayAdapter
+@enduml
