@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class InterestedInPeopleFromCityService {
+@Service(InterestedInPeopleFromCity)
+interface InterestedInPeopleFromCityService {
 
-    def serviceMethod() {
+    InterestedInPeopleFromCity get(Serializable id)
 
-    }
+    List<InterestedInPeopleFromCity> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    InterestedInPeopleFromCity save(InterestedInPeopleFromCity interestedInPeopleFromCity)
+
 }

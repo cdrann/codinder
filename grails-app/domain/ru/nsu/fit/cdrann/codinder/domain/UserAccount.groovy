@@ -3,9 +3,9 @@ package ru.nsu.fit.cdrann.codinder.domain
 class UserAccount {
 
     String name
-    Integer age
     Gender gender
-    UserPhoto userPhoto
+
+    Integer age
     City city
 
     InterestedInGender interestedInGender
@@ -16,6 +16,8 @@ class UserAccount {
     private BlockUser[] blockUsers //TODO ?
     private Matches matches
     private Conversation conversation
+
+    static  hasMany = [matches: Matches, messages: Messages]
 
     static constraints = {
         name blank: false, size: 2..15

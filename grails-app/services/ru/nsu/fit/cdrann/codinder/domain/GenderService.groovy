@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class GenderService {
+@Service(Gender)
+interface GenderService {
 
-    def serviceMethod() {
+    Gender get(Serializable id)
 
-    }
+    List<Gender> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    Gender save(Gender gender)
+
 }

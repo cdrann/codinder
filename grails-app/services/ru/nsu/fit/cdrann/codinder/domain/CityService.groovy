@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class CityService {
+@Service(City)
+interface CityService {
 
-    def serviceMethod() {
+    City get(Serializable id)
 
-    }
+    List<City> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    City save(City city)
+
 }

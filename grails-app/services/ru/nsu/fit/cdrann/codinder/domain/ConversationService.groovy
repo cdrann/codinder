@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class ConversationService {
+@Service(Conversation)
+interface ConversationService {
 
-    def serviceMethod() {
+    Conversation get(Serializable id)
 
-    }
+    List<Conversation> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    Conversation save(Conversation conversation)
+
 }

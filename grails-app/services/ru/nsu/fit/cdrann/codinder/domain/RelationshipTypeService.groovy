@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class RelationshipTypeService {
+@Service(RelationshipType)
+interface RelationshipTypeService {
 
-    def serviceMethod() {
+    RelationshipType get(Serializable id)
 
-    }
+    List<RelationshipType> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    RelationshipType save(RelationshipType relationshipType)
+
 }

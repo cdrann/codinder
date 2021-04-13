@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class BlockUserService {
+@Service(BlockUser)
+interface BlockUserService {
 
-    def serviceMethod() {
+    BlockUser get(Serializable id)
 
-    }
+    List<BlockUser> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    BlockUser save(BlockUser blockUser)
+
 }

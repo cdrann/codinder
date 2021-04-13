@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class TechnologyTypeService {
+@Service(TechnologyType)
+interface TechnologyTypeService {
 
-    def serviceMethod() {
+    TechnologyType get(Serializable id)
 
-    }
+    List<TechnologyType> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    TechnologyType save(TechnologyType technologyType)
+
 }

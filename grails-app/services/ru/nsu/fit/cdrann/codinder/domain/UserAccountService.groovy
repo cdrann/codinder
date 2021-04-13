@@ -1,11 +1,18 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class UserAccountService {
+@Service(UserAccount)
+interface UserAccountService {
 
-    def serviceMethod() {
+    UserAccount get(Serializable id)
 
-    }
+    List<UserAccount> list(Map args)
+
+    Long amount()
+
+    void delete(Serializable id)
+
+    UserAccount save(UserAccount userAccount)
+
 }
