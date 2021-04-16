@@ -4,12 +4,17 @@ class Gender {
 
     String name
 
-    static constraints = {
-        name blank: false, size: 1..10, unique: true
+    Gender(String name) {
+        this.name = name
     }
 
-    @Override
+    static hasMany = [user: UserAccount]
+
+    static constraints = {
+        name blank: false, size: 2..50, unique: true, inList: ['Male', 'Female']
+    }
+
     String toString() {
-        return name
+        name
     }
 }

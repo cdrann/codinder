@@ -3,12 +3,18 @@ package ru.nsu.fit.cdrann.codinder.domain
 class RelationshipType {
     String name
 
+    RelationshipType(String name) {
+        this.name = name
+    }
+
+    static hasMany = [interestedInRelation:InterestedInRelation]
+
     static constraints = {
         name blank: false, size: 2..50, unique: true
     }
 
     @Override
-    String toString() {
-        return name
+    public String toString() {
+        return  name;
     }
 }

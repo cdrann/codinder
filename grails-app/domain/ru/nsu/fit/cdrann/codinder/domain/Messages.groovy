@@ -2,12 +2,16 @@ package ru.nsu.fit.cdrann.codinder.domain
 
 class Messages {
 
-    String   message
-    String dateCreated
-    String lastUpdated
+    static belongsTo = [user: Conversation]
 
-    static belongsTo = [user: UserAccount]
+    String   message
 
     static constraints = {
+
+    }
+
+    @Override
+    String toString() {
+        return message
     }
 }

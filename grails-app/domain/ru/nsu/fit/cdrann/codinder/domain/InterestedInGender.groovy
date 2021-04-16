@@ -1,15 +1,9 @@
 package ru.nsu.fit.cdrann.codinder.domain
 
 class InterestedInGender {
-
-    String name
+    static belongsTo = [gender: Gender, user:UserAccount]
 
     static constraints = {
-        name blank: false, size: 2..50, unique: true
-    }
-
-    @Override
-    String toString() {
-        return name
+        gender unique: 'user'
     }
 }

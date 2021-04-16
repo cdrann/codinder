@@ -3,48 +3,26 @@ package ru.nsu.fit.cdrann.codinder.domain
 class UserAccount {
 
     String name
-    Gender gender
-
     Integer age
-    City city
 
-    InterestedInGender interestedInGender
-    InterestedInRelation interestedInRelation
-    InterestedInTech interestedInTech
-    InterestedInPeopleFromCity interestedInPeopleFromCity
-
-    private BlockUser[] blockUsers //TODO ?
-    private Matches matches
-    private Conversation conversation
-
-    static  hasMany = [matches: Matches, messages: Messages]
+    static belongsTo = [city: City, gender: Gender]
+    static hasMany = [interestedInPeipleFromCity: InterestedInPeopleFromCity, matches: Matches, conversation: Conversation,
+                      interestedInTech          : InterestedInTech, interestedInRelation: InterestedInRelation, interestedInGender: InterestedInGender]
 
     static constraints = {
         name blank: false, size: 2..15
         gender nullable: true, size: 2..40
-        city nullable: true, size: 2..40
-        userPhoto nullable: true, size: 2..40
-        age min: 18
+        age validator: { val -> validateAgeNum(val) }
 
-        interestedInTech nullable: true
-        interestedInRelation nullable: true
-        interestedInPeopleFromCity nullable: true
-        interestedInGender nullable: true
-        
     }
 
+    private static def validateAgeNum(int i) {
+        if(i < 1 || i > 120)
+            return ["invalid date"]
+    }
 
     @Override
-    public String toString() {
-        return "UserAccount{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                ", interestedInGender=" + interestedInGender +
-                ", interestedInRelation=" + interestedInRelation +
-                ", interestedInTech=" + interestedInTech +
-                ", userPhoto=" + userPhoto +
-                ", city=" + city +
-                '}';
+    String toString() {
+        return name
     }
 }
