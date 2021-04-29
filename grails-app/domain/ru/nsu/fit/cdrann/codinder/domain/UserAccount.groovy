@@ -17,7 +17,7 @@ class UserAccount {
     }
 
     private static def validateAgeNum(int i) {
-        if(i < 1 || i > 120)
+        if(i < 1 || i > 150)
             return ["invalid date"]
     }
 
