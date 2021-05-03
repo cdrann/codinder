@@ -4,7 +4,8 @@ class UserAccount {
 
     String name
     Integer age
-
+    Date createdAt
+    Boolean isActive
     static belongsTo = [city: City, gender: Gender]
     static hasMany = [interestedInPeipleFromCity: InterestedInPeopleFromCity, matches: Matches, conversation: Conversation,
                       interestedInTech          : InterestedInTech, interestedInRelation: InterestedInRelation, interestedInGender: InterestedInGender]
@@ -13,6 +14,7 @@ class UserAccount {
         name blank: false, size: 2..15
         gender nullable: true, size: 2..40
         age validator: { val -> validateAgeNum(val) }
+        createdAt validator: { if (it != null && it.after(new Date())) return ["invalid date"] }
 
     }
 

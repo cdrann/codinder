@@ -20,7 +20,7 @@
 
 <div>
     <div>
-        <h2 style="margin-left: 20px">Запрос с Inner Join</h2>
+        <h2 style="margin-left: 20px">Запрос с Outer Join</h2>
     </div>
 
     <form class="form" style="margin-left: 20px">
