@@ -6,6 +6,7 @@ class UserAccount {
     Integer age
     Date createdAt
     Boolean isActive
+
     static belongsTo = [city: City, gender: Gender]
     static hasMany = [interestedInPeipleFromCity: InterestedInPeopleFromCity, matches: Matches, conversation: Conversation,
                       interestedInTech          : InterestedInTech, interestedInRelation: InterestedInRelation, interestedInGender: InterestedInGender]
